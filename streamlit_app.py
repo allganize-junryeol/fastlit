@@ -5,6 +5,23 @@ from navigation import navigate
 
 
 def main_home():
+    if get_role() is None:
+        st.set_page_config(initial_sidebar_state="collapsed")
+        st.html(
+            """
+            <style>
+                [data-testid="stSidebar"] {
+                    display: none
+                }
+                [data-testid="collapsedControl"] {
+                    display: none
+                }
+            </style>
+            """
+        )
+    else:
+        st.set_page_config(initial_sidebar_state="expanded")
+
     st.header("Home")
     if get_role() is None:
         st.write("You are not logged in.")
@@ -14,6 +31,6 @@ def main_home():
         logout_component()
 
 if __name__ == "__main__":
-    st.logo("images/horizontal_blue.png", icon_image="images/icon_blue.png")
-
+       
     navigate(main_home)
+    st.logo("images/horizontal_blue.png", icon_image="images/icon_blue.png")

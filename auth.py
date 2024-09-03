@@ -19,19 +19,6 @@ def logout():
     st.rerun()
 
 def login_component():
-    st.html(
-        """
-        <style>
-            [data-testid="stSidebar"] {
-                display: none
-            }
-            [data-testid="collapsedControl"] {
-                display: none
-            }
-        </style>
-        """
-    )
-    
     role = st.selectbox("Choose your role", [role.value for role in Role])
 
     if st.button("Log in"):
