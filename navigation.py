@@ -1,17 +1,10 @@
+from typing import Callable
+
 import streamlit as st
 
-from auth import Role, get_role, login_component, logout_component
+from auth import Role, get_role
 
-def home_page():
-    st.header("Home")
-    if get_role() is None:
-        st.write("You are not logged in.")
-        login_component()
-    else:
-        st.write("You are logged in.")
-        logout_component()
-
-def navigate():
+def navigate(home_page: Callable):
     
     role = get_role()
     
