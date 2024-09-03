@@ -4,7 +4,7 @@ from auth import get_role, login_component, logout_component
 from navigation import navigate
 
 
-def home_page():
+def main_home():
     st.header("Home")
     if get_role() is None:
         st.write("You are not logged in.")
@@ -16,4 +16,4 @@ def home_page():
 if __name__ == "__main__":
     st.logo("images/horizontal_blue.png", icon_image="images/icon_blue.png")
 
-    navigate(home_page)
+    navigate(main_home)
