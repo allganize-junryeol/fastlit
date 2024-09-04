@@ -33,4 +33,4 @@ def main_home():
 if __name__ == "__main__":
        
     navigate(main_home)
-    st.logo("images/horizontal_blue.png", icon_image="images/icon_blue.png")
+    st.logo("frontend/images/horizontal_blue.png", icon_image="frontend/images/icon_blue.png")
