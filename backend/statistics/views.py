@@ -8,7 +8,7 @@ from backend.statistics.models import Statistics
 
 router = APIRouter()
 
-@router.post("/statistics", response_model=Statistics)
+@router.get("/statistics", response_model=Statistics)
 async def get_statistics():
     return Statistics(
         number_of_system=random.randint(5, 10),
