@@ -26,5 +26,9 @@ async def get_events():
             event = logfmt_to_dict(line)
             if event["type"] == "utm" and event["subtype"] == "virus":
                 events.append(event)
+            if event["type"] == "utm" and event["subtype"] == "ips":
+                events.append(event)
+            if event["type"] == "utm" and event["subtype"] == "anomaly":
+                events.append(event)
 
     return events
