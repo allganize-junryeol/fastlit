@@ -8,6 +8,7 @@
             "module": "streamlit",
             "args": ["run", "index.py"],
             "justMyCode": true,
+            "preLaunchTask": "uvicorn-api",
         }
     ]
 }
