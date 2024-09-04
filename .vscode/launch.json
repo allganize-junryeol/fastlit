@@ -6,7 +6,7 @@
             "type": "python",
             "request": "launch",
             "module": "streamlit",
-            "args": ["run", "streamlit_app.py"],
+            "args": ["run", "index.py"],
             "justMyCode": true,
         }
     ]

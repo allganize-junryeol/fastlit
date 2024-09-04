@@ -2,7 +2,7 @@ from enum import Enum
 
 import streamlit as st
 
-from state import State
+from frontend.state import State
 
 class Role(str, Enum):
     REQUESTER = "Requester"

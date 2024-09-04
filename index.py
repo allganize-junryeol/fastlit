@@ -1,7 +1,7 @@
 import streamlit as st
 
-from auth import get_role, login_component, logout_component
-from navigation import navigate
+from frontend.auth import get_role, login_component, logout_component
+from frontend.navigation import navigate
 
 
 def main_home():

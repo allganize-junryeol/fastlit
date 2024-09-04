@@ -2,11 +2,11 @@ from typing import Callable
 
 import streamlit as st
 
-from auth import Role, get_role
+from frontend.auth import Role, get_role
 
-from pages.dashboard.dashboard import main_dashboard
-from pages.admin.admin_1 import main_admin_1
-from pages.admin.admin_2 import main_admin_2
+from frontend.pages.dashboard.dashboard import main_dashboard
+from frontend.pages.admin.admin_1 import main_admin_1
+from frontend.pages.admin.admin_2 import main_admin_2
 
 def navigate(main_home: Callable):    
     role = get_role()

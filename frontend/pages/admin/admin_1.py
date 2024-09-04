@@ -1,7 +1,6 @@
-import os
 import streamlit as st
 
-from auth import get_role
+from frontend.auth import get_role
 
 def main_admin_1():
     st.header("Admin 1")
