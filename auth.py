@@ -2,20 +2,22 @@ from enum import Enum
 
 import streamlit as st
 
+from state import State
+
 class Role(str, Enum):
     REQUESTER = "Requester"
     RESPONDER = "Responder"
     ADMIN = "Admin"
 
 def get_role():
-    return st.session_state.role if "role" in st.session_state else None
+    return State().role
 
 def login(role: Role):
-    st.session_state.role = role
+    State().role = role
     st.rerun()
 
 def logout():
-    st.session_state.role = None
+    State().role = None
     st.rerun()
 
 def login_component():
