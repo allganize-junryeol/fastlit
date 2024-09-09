@@ -5,9 +5,9 @@ import streamlit as st
 from frontend.state import State
 
 class Role(str, Enum):
+    ADMIN = "Admin"
     REQUESTER = "Requester"
     RESPONDER = "Responder"
-    ADMIN = "Admin"
 
 def get_role():
     return State().role

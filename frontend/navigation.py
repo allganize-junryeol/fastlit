@@ -4,9 +4,10 @@ import streamlit as st
 
 from frontend.auth import Role, get_role
 
-from frontend.pages.dashboard.dashboard import main_dashboard
 from frontend.pages.admin.admin_1 import main_admin_1
 from frontend.pages.admin.admin_2 import main_admin_2
+from frontend.pages.dashboard.dashboard import main_dashboard
+from frontend.pages.dashboard.topology import main_topology
 
 def navigate(main_home: Callable):    
     role = get_role()
@@ -24,6 +25,7 @@ def navigate(main_home: Callable):
         ]
         page_dict["Dashboard"] = [
             st.Page(main_dashboard, title="Dashboard", icon=":material/dashboard:", url_path="dashboard"),
+            st.Page(main_topology, title="Topology", icon=":material/hub:", url_path="topology"),
         ]
 
     if role in [Role.ADMIN]:

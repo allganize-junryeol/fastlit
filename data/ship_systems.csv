@@ -1,0 +1,58 @@
+system_num,system_key,system_name,system_brand,system_model
+1,AMS,AMS (Alarm Monitoring System),Hyundai,HiCON-AMS
+2,CHS,CHS (Cargo Handling System),Hyundai,HiCON-CHS
+3,BMSM,BMS (Bridge Manoeuvring System) (Main),Nabtesco,M-800-V
+4,BMSR,BMS (Bridge Manoeuvring System) (Reserve),Nabtesco,M-800-V
+5,ECDIS1,ECDIS No.1,Furuno,FMD-3300
+6,ECDIS2,ECDIS No.2,Furuno,FMD-3300
+7,RADAR1,S-BAND RADAR No.1,Furuno,FAR-2338S-NXT
+8,RADAR2,X-BAND RADAR No.2,Furuno,FAR-2328-NXT
+9,RADAR3,X-BAND RADAR No.3,Furuno,FAR-2328
+10,AIS,AIS (Automatic Identification System),Furuno,FA-170
+11,AP,Auto Pilot (Heading & Steering Gear Control System),Tokyo Keiki,PR-9000
+12,GC,Gyro Campass,Tokyo Keiki,TG-8000
+13,DSL,Doppler Speed Log,Furuno,DS-60
+14,SSL,Staellite Speed Log,Furuno,GS-100
+15,EML,Electromagnetic Log,Yokogawa,EML900-FB2
+16,DGPS,DGPS (Differential GPS),Furuno,GP-170
+17,SC,Staellite Compass,Furuno,SC-130
+18,ES,Echo Sounder,Furuno,FE-800
+19,BNWAS,BNWAS (Bridge Navigational Watch Alarm System),Furuno,BR-500
+20,NAVTEX,NAVTEX (Receiver),Furuno,NX-700A
+21,RAI,RAI (Rudder Angle Indication System),Heriana,
+22,GMDSS,GMDSS Radio Station (Global Maritime Distress and Safety System),Furuno,RC-1800F2-2S
+23,LRIT,LRIT (Inmarsat Mini-C Mes),Furuno,FELCOM 19
+24,LRITC,LRIT for Citadel (Inmarsat Mini-C Mes),Furuno,FELCOM 19
+25,VDR,VDR (Voyage Data Recorder),Furuno,VR-7000
+26,CLOCK,Master Clock,MRC,MCS-980
+27,ISS,ISS (Integrated Smart Ship Solution),Hyundai,
+28,AA,Anemometer & Anemoscope,Heriana,AT-130
+29,MC,Magnetic Compass,Tokyo Keiki,SH-165A2-1
+30,VSAT,V-SAT (Very Small Aperature Terminal),Furuno,FV-110GX
+31,SCS,Satellite Communication System,Furuno,FELCOM 501
+32,AT,Automatic Telephone,Iljin,XCA-200S
+33,VHF1,VHF Radio Telephone No.1,Furuno,FM-8900S
+34,VHF2,VHF Radio Telephone No.2,Furuno,FM-8900S
+35,VHF3,VHF Radio Telephone No.3,Furuno,FM-8900S
+36,ICS,IRIDIUM Communication System,Furuno,SLT-H3130
+37,IGG,Inert Gas Generator,Maritime Protection AS,
+38,MECS,Main Engine Control System,Hyundai,6G60ME-C9.5-HP
+39,LC,Loading Computer,,
+40,GEM,Generator Engine (Main),Hyundai,
+41,GEB,Generator Engine (Back-up),Hyundai,
+42,BWMS,BWMS (Bearing Wear Monitoring System),Kongsberg,BWCM 600
+43,PMS,PMS (Power Management System),,
+44,BWTS,BWTS (Ballast Water Treatment System),Hyundai,HiBALLAST
+45,SCR,SCR (Selective Catalistic Reduction),Hyundai,NoNOx
+46,TLGS,TLGS (Tank Level Gauging System),Panasia,
+47,SPM,Shaft Power Meter,Kyma,KPM-P
+48,BS,Boiler System (Composie Boiler),Kangrim,
+49,EGCS,EGCS (Exhaust Gas Cleaning System),Hyundai,
+50,TRGS,Tank Radar Gauging System (Cargo Level Gauging System),Kongsberg,K-Gauge GAS 700
+51,GDS,Gas Detection System,Riken Keiki,
+52,NAVBOX,NAVBOX,,
+53,IFB,inmarsat fleet broadband,,
+54,PA,Public Address,,
+55,CAS,CAS (Communial Aerial System),,
+56,LAN,Ship's LAN,,
+57,FDS,FDS (Fire Detection System),,
