@@ -4,6 +4,7 @@ from fastapi.responses import RedirectResponse
 
 from backend.events.views import router as event_router
 from backend.statistics.views import router as statistics_router
+from backend.ssh.views import router as ssh_router
 
 app = FastAPI()
 app.add_middleware(
@@ -16,6 +17,7 @@ app.add_middleware(
 
 app.include_router(router=event_router, tags=["ip"])
 app.include_router(router=statistics_router, tags=["link"])
+app.include_router(router=ssh_router, tags=["ssh"])
 
 @app.get("/")
 async def redirect_to_docs():
