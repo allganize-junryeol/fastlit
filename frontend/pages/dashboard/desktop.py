@@ -2,10 +2,10 @@ import streamlit as st
 
 import streamlit as st
 import streamlit.components.v1 as components
-from frontend.file import css, js
+from frontend.file import js
 from frontend.state import State
 
-def main_terminal():
+def main_desktop():
     st.set_page_config(
         layout="wide",
     )
@@ -27,15 +27,16 @@ def main_terminal():
             state.is_connected = False
             
         html = f"""
-            <div id="terminal"></div>
-            {css("static/xterm.min.css")}
-            {js("static/xterm.min.js")}
-            {js("static/xterm-addon-fit.min.js")}
-            {js("static/ssh.js")}
+            <canvas id="desktop" style="width: 100%; height: 100%;"></canvas>
+            {js("static/mstsc.js")}
+            {js("static/keyboard.js")}
+            {js("static/rle.js")}
+            {js("static/canvas.js")}
+            {js("static/rdp.js")}
         """
             
         components.html(html, height=500)
 
 
 if __name__ == "__main__":
-    main_terminal()
+    main_desktop()

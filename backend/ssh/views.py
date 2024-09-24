@@ -1,5 +1,6 @@
 import asyncio
 import json
+import os
 import struct
 import socket
 from typing import List
@@ -9,26 +10,43 @@ import paramiko
 
 router = APIRouter()
 
+import re
+
+def parse_ssh_uri(uri):
+    # 정규 표현식으로 URI 파싱
+    pattern = r"ssh://(?:(?P<username>[^:]+)(?::(?P<password>[^@]+))?@)?(?P<ip>[^:]+)(?::(?P<port>\d+))?"
+    match = re.match(pattern, uri)
+    
+    if match:
+        # 매칭된 그룹을 딕셔너리로 반환
+        return {
+            "username": match.group("username"),
+            "password": match.group("password"),
+            "ip": match.group("ip"),
+            "port": int(match.group("port")) if match.group("port") else 22,
+        }
+    else:
+        return None
+
 class SSHClient:
     def __init__(
             self,
-            entrypoint_ip,
-            entrypoint_username,
-            entrypoint_password,
-            internel_ip,
-            internel_username,
-            internel_password,
         ) -> None:
         
+        uri = os.getenv('SSH_URI', 'ssh://PC:1234@0.0.0.0')
+        data = parse_ssh_uri(uri)
+
         self.BUF_SIZE = 32 * 1024
 
-        self.entrypoint_ip = entrypoint_ip
-        self.entrypoint_username = entrypoint_username
-        self.entrypoint_password = entrypoint_password
+        self.entrypoint_ip = data["ip"]
+        self.entrypoint_port = data["port"]
+        self.entrypoint_username = data["username"]
+        self.entrypoint_password = data["password"]
 
-        self.internel_ip = internel_ip
-        self.internel_username = internel_username
-        self.internel_password = internel_password
+        self.internel_ip = "localhost"
+        self.internel_port = 22
+        self.internel_username = data["username"]
+        self.internel_password = data["password"]
 
         self.phost = paramiko.SSHClient()
         self.jhost = paramiko.SSHClient()
@@ -42,7 +60,7 @@ class SSHClient:
         try:
             self.phost.set_missing_host_key_policy(paramiko.AutoAddPolicy())
             self.phost.connect(
-                self.entrypoint_ip, 22, 
+                self.entrypoint_ip, self.entrypoint_port, 
                 username=self.entrypoint_username, 
                 password=self.entrypoint_password, 
                 timeout=10
@@ -50,13 +68,13 @@ class SSHClient:
 
             transport = self.phost.get_transport()
             self.pchannel = transport.open_channel(
-                "direct-tcpip", (self.internel_ip, 22), (self.entrypoint_ip, 22)
+                "direct-tcpip", (self.internel_ip, self.internel_port), (self.entrypoint_ip, self.entrypoint_port)
             )
             self.pchannel.setblocking(0)
 
             self.jhost.set_missing_host_key_policy(paramiko.AutoAddPolicy())
             self.jhost.connect(
-                self.internel_ip, 22, 
+                self.internel_ip, self.internel_port, 
                 username=self.internel_username, 
                 password=self.internel_password, 
                 sock=self.pchannel, 
@@ -132,12 +150,12 @@ async def websocket_endpoint(websocket: WebSocket, client_id: int):
     await manager.connect(websocket)
 
     connection = SSHClient(
-        entrypoint_ip = "127.0.0.1",
-        entrypoint_username = 'junryeol',
-        entrypoint_password = 'qkrwns23',
-        internel_ip = "192.168.101.18",
-        internel_username = 'junryeol',
-        internel_password = 'qkrwns23',
+        # entrypoint_ip = "127.0.0.1",
+        # entrypoint_username = 'junryeol',
+        # entrypoint_password = 'qkrwns23',
+        # internel_ip = "192.168.101.18",
+        # internel_username = 'junryeol',
+        # internel_password = 'qkrwns23',
     )
 
     try:

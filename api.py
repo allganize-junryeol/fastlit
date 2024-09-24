@@ -5,6 +5,10 @@ from fastapi.responses import RedirectResponse
 from backend.events.views import router as event_router
 from backend.statistics.views import router as statistics_router
 from backend.ssh.views import router as ssh_router
+from backend.rdp.views import router as rdp_router
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = FastAPI()
 app.add_middleware(
@@ -18,6 +22,7 @@ app.add_middleware(
 app.include_router(router=event_router, tags=["ip"])
 app.include_router(router=statistics_router, tags=["link"])
 app.include_router(router=ssh_router, tags=["ssh"])
+app.include_router(router=rdp_router, tags=["rdp"])
 
 @app.get("/")
 async def redirect_to_docs():
@@ -26,7 +31,6 @@ async def redirect_to_docs():
 @app.get("/health")
 async def health():
     return {"message": "ok"}
-
 
 if __name__ == "__main__":
     import uvicorn

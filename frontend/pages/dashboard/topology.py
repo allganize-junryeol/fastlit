@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from streamlit_flow import streamlit_flow
 from streamlit_flow.elements import StreamlitFlowNode, StreamlitFlowEdge
-from streamlit_flow.layouts import ForceLayout
+from streamlit_flow.layouts import ForceLayout, StressLayout
 
 def main_topology():
     st.set_page_config(
@@ -34,7 +34,7 @@ def main_topology():
             edges.append(StreamlitFlowEdge(f'{source}-{destination}', source, destination))
             edges.append(StreamlitFlowEdge(f'{destination}-{source}', destination, source))
 
-    streamlit_flow('network_connections', list(nodes.values()), edges, layout=ForceLayout(), fit_view=True)
+    streamlit_flow('network_connections', list(nodes.values()), edges, layout=StressLayout(), fit_view=True)
 
 if __name__ == "__main__":
     main_topology()

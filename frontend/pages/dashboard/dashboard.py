@@ -44,12 +44,19 @@ def main_dashboard():
             np.random.randn(10, 5), columns=("col %d" % i for i in range(5))
         )
         st.table(df)
+        
+        df = pd.DataFrame(
+            np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
+            columns=["lat", "lon"],
+        )
+        st.map(df)
 
     with list_tab:
         df = pd.DataFrame(
             np.random.randn(10, 5), columns=("col %d" % i for i in range(5))
         )
         st.table(df)
+
 
 if __name__ == "__main__":
     main_dashboard()
